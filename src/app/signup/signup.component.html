@@ -1,0 +1,92 @@
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="main">
+    <div class="main-center">
+
+      <form [formGroup]="UserprofileForm">
+        <h2>Signup Form</h2>
+        <div *ngIf="issignedup">
+          <div class="alert alert-success" role="alert">
+            This is a success alert—check it out!
+          </div>
+        </div>
+        <div *ngIf="!error">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" formControlName="name" placeholder="Enter your Name" />
+
+            </div>
+            <div class="alert text-danger" *ngIf="!UserprofileForm.controls['name'].valid && UserprofileForm.controls['name'].touched">User
+              name is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Your Email</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+              <input type="text" class="form-control" formControlName="email" placeholder="Enter your Name" />
+
+            </div>
+            <div class="alert text-danger" *ngIf="!UserprofileForm.controls['email'].valid && UserprofileForm.controls['email'].touched">User
+              email is required</div>
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" formControlName="password" placeholder="Enter your Password" />
+            </div>
+            <div class="alert text-danger" *ngIf="!UserprofileForm.controls['password'].valid && UserprofileForm.controls['password'].touched">Minlength
+              is 2 and max length is 8</div>
+          </div>
+
+
+          <div formGroupName=language>
+            <div class="form-group">
+              <label>language</label>
+              <div class="input-group">
+                <select class="form-control" formControlName="id">
+                  <option *ngFor="let language of languageList" [value]="language.id">{{language.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <!-- 
+						<div class="form-group">
+							<label for="confirm">Confirm Password</label>
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" formControlName="language" placeholder="Confirm your Password"  required/>
+								</div>
+								<div class="alert text-danger" *ngIf="!UserprofileForm.controls['language'].valid && UserprofileForm.controls['language'].touched">Minlength is 2 and max length is 8</div>
+						</div> -->
+
+          <button class="btn btn-primary btn" (click)="save()">Submit</button>
+
+        </div>
+        <div *ngIf="error" class="text-danger">System error
+          {{errorMessage.messege}}
+        </div>
+
+      </form>
+    </div>
+    <!--main-center"-->
+  </div>
+  <!--main-->
+</div>
+<!--container-->

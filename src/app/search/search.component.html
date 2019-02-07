@@ -1,0 +1,46 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+	<div class="row">
+		<h2> Search  News Analyst</h2>
+           <div id="custom-search-input">
+                            <div class="input-group col-md-12">
+                                <input type="text" class="  search-query form-control"  placeholder="Search"  #email/>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button" (click)="get(email.value)">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+	</div>
+</div>
+<br>
+
+<div class="col-lg-4 col-sm-12"></div>
+  <div class="col-lg-4 col-sm-12">
+<div *ngIf="isUser==true">
+  <div class="card analyst"  *ngIf="newsAnalyst.status" >
+  <div class="card-body">
+    <h5 class="card-title">About News Analyst:</h5>
+    <h5> Name : {{newsAnalyst.name | uppercase}}  </h5>
+    <h5>Email : {{newsAnalyst.email}}</h5>
+    <h5>Role : {{newsAnalyst.role.name}}</h5>
+    <h5> Language : {{newsAnalyst.language.name| uppercase}}</h5> 
+    <button type="button" class="btn btn-success "   (click)="changeStatus(newsAnalyst.email)" >Block</button>
+  </div>
+</div>
+<div class="card block"  *ngIf="!newsAnalyst.status">
+  <div class="card-body">
+    <h5 class="card-title">About News Analyst:</h5>
+    <h5> Name : {{newsAnalyst.name | uppercase}}  </h5>
+    <h5>Email : {{newsAnalyst.email}}</h5>
+    <h5>Role : {{newsAnalyst.role.name}}</h5>
+    <h5> Language : {{newsAnalyst.language.name| uppercase}}</h5> 
+    <button type="button" class="btn btn-danger "   (click)="changeStatus(newsAnalyst.email)" >UnBlock</button>
+  </div>
+</div>
+</div>
+</div>

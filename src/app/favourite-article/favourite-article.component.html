@@ -1,0 +1,45 @@
+<h2>Favourite article</h2>
+
+
+<div class="container">
+  <div class="row">
+  
+    <div class="col-lg-6  col-sm-12" *ngFor="let article of articleList">
+      <div class="card text-center">
+        <div class="card-header">
+          {{article.title}}
+
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-4 sm-12">
+              <img src="{{article.urlToImage}}" style="width:70%;height:98%">
+            </div>
+            <div class="col-lg-8 sm-12">
+
+              <h6 class="card-text">{{article.description}}</h6>
+              <p class="card-text">{{article.content}}</p>
+            </div>
+
+
+          </div>
+          <!-- <a href= "http://www.sys-con.com/node/4371031" class="btn btn-primary">Go somewhere</a>-->
+        </div>
+        <div class="card-footer text-muted">
+          <p class="card-title">Author:{{article.author}} </p>, {{article.publishedAt}}
+        </div>
+        <button type="button" class="btn btn-danger " (click)="delete(article)">delete</button>
+
+
+     
+        
+     
+
+      </div>
+     
+
+    </div>
+  </div>
+
+</div>
+
